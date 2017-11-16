@@ -4,7 +4,7 @@
 #include "cuda.h"
 #include <stdio.h>
 #include <math.h>
-
+#include <stdlib.h>
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
@@ -287,7 +287,7 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
             int right = (b.x+b.w/2.)*im.w;
             int top   = (b.y-b.h/2.)*im.h;
             int bot   = (b.y+b.h/2.)*im.h;
-            fprintf(f, "%d %d %d %d \n", top,bot,left,right);
+            fprintf(f, "%d %d %d %d %d %d\n", top,bot,left,right,abs((bot-top)/2),abs((right-left)/2) );
             if(left < 0) left = 0;
             if(right > im.w-1) right = im.w-1;
             if(top < 0) top = 0;
