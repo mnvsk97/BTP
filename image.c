@@ -41,7 +41,7 @@ image mask_to_rgb(image mask)
             im.data[i + 2*im.w*im.h] += mask.data[j*im.h*im.w + i]*blue;
         }
     }
-    return im;
+    return im; 
 }
 
 static float get_pixel(image m, int x, int y, int c)
